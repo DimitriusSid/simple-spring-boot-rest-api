@@ -6,7 +6,6 @@ import com.spring_boot.rest_api.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,5 +43,10 @@ public class EmployeeServiceImplementation implements EmployeeService {
     @Override
     public void deleteEmployee(int id) {
         employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Employee> getAllEmployeesByDepartmentName(String departmentName) {
+        return employeeRepository.findAllByDepartment(departmentName);
     }
 }

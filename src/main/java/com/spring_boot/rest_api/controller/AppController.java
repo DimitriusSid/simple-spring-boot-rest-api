@@ -48,4 +48,9 @@ public class AppController {
         return employee.toString() + " was deleted successfully";
     }
 
+    @GetMapping("/department/{department}")
+    public List<Employee> getAllEmployeesByDepartmentName(@PathVariable("department") String departmentName) {
+        return employeeService.getAllEmployeesByDepartmentName(departmentName);
+    }
+
 }
